@@ -1,0 +1,9 @@
+{
+  "name": "planning-poker",
+  "private": true,
+  "dependencies": {
+    "jquery": "~1.11.0",
+    "iscroll": "~5.1.1"
+  },
+  "devDependencies": {}
+}
