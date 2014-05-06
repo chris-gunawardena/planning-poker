@@ -1,1 +1,0 @@
-var myScroll=new IScroll("#wrapper",{scrollX:!0,scrollY:!0,momentum:!0,snap:!0});document.addEventListener("touchmove",function(a){a.preventDefault()},!1);

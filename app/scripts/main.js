@@ -1,9 +1,17 @@
 
 
+var add_to_home = addToHomescreen({
+	maxDisplayCount: 3,
+	startDelay: 15,
+	//debug: true,
+	appID: 'puevfthanjneqran',
+	mandatory: false
+});
+
 var	myScroll = new IScroll('#wrapper', {
 	scrollX: true,
 	scrollY: true,
-	momentum: true,
+	momentum: false,
 	snap: true
 });
 
