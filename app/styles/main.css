@@ -47,10 +47,10 @@ body {
 #wrapper {
     position: absolute;
     z-index: 1;
-    top: 10%;
-    bottom: 10%;
-    right: 10%;
-    left: 10%;
+    top: 5%;
+    bottom: 5%;
+    right: 5%;
+    left: 5%;
 }
 
 #scroller {
@@ -87,7 +87,7 @@ body {
 
 }
 
-#scroller li {
+#scroller ul li {
     display: block;
     float: left;
     width: 25%;
@@ -100,8 +100,12 @@ body {
     word-wrap: break-word;
     text-align: justify;
 }
-
-#scroller li span:first-child{
+#scroller ul li small a,
+#scroller ul li small a:visited{
+    font-size: 18px;
+    color: #bbb;
+}
+#scroller li > span:first-child{
     position: absolute;
     top: 0;
     left: 0;
@@ -109,7 +113,7 @@ body {
     color: #EEE;
     font-size: 50px;
 }
-#scroller li div{
+#scroller li > div{
     position: absolute;
     top: 0;
     bottom: 0;
@@ -119,10 +123,10 @@ body {
     height: 40%;
     margin: auto;
     text-align: center;
-    font-size: 120px;
+    font-size: 130px;
 }
 
-#scroller li span:last-child{
+#scroller li > span:last-child{
     position: absolute;
     bottom: 0;
     right: 0;
