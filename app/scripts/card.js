@@ -2,7 +2,7 @@ class Card{
 	constructor(card_text) {
 		// Init
 		this.ratio = 16/9;
-		this.width = 40;
+		this.width = 10;
 		this.height = this.width * this.ratio;
 		this.space = 5;
 		this.card = new THREE.Object3D();
@@ -10,7 +10,7 @@ class Card{
 
 		// Card background
 		this.bgMaterial = new THREE.MeshLambertMaterial({color : '#e44231'});
-		this.bgGeometry = new THREE.BoxGeometry(this.width, this.height, 10);
+		this.bgGeometry = new THREE.BoxGeometry(this.width, this.height, 1);
 		this.bgMesh = new THREE.Mesh(this.bgGeometry, this.bgMaterial);
 		this.bgMesh.castShadow = true;
 		this.bgMesh.receiveShadow = true;
@@ -27,7 +27,7 @@ class Card{
 		this.center	= new THREE.Vector3();
 		this.center.x	= (this.textGeometry.boundingBox.max.x - this.textGeometry.boundingBox.min.x) / 2
 		this.center.y	= (this.textGeometry.boundingBox.max.y - this.textGeometry.boundingBox.min.y) / 2
-		this.center.z	= -7 + (this.textGeometry.boundingBox.max.z - this.textGeometry.boundingBox.min.z) / 2
+		this.center.z	= -1 + (this.textGeometry.boundingBox.max.z - this.textGeometry.boundingBox.min.z) / 2
 		this.textGeometry.vertices.forEach(function(vertex) {
 			vertex.sub(this.center)
 		}, this);
@@ -58,7 +58,7 @@ class Card{
 
 		var tween = new TWEEN.Tween(this.card.position)
 		.easing(TWEEN.Easing.Elastic.InOut)
-		.to(this.selected ? { x: 0, y: 0, z: 80 } : this.initialPosition, 1000)
+		.to(this.selected ? { x: 0, y: 0, z: 20 } : this.initialPosition, 1000)
 		.onUpdate(function() {
 			self.card.position.x = this.x;
 			self.card.position.y = this.y;
@@ -122,10 +122,10 @@ class Cards{
 	}
 
 	init_scene_bg(){
-		var geometry = new THREE.PlaneGeometry(500, 500);
+		var geometry = new THREE.CubeGeometry(500, 500, 1);
 		var material = new THREE.MeshPhongMaterial( { color: 0xcccccc } );
 		var plane = new THREE.Mesh( geometry, material );
-		plane.position.z = -20;
+		plane.position.z = -5;
 		plane.receiveShadow = true;
 		scene.add(plane);
 	}

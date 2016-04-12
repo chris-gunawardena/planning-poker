@@ -1,10 +1,14 @@
 var scene = new THREE.Scene();
 var camera = init_camera();
-var renderer = new THREE.WebGLRenderer({antialias: true});
+var renderer = new THREE.WebGLRenderer({
+	clearAlpha: 1,
+	clearColor: 0xdddddd,
+	antialias: true
+ });
 // renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight+1);
 renderer.shadowMap.enabled = true;
-renderer.shadowMapSoft = true;
+//renderer.shadowMapSoft = true;
 
 document.body.appendChild(renderer.domElement);
 
@@ -12,7 +16,7 @@ document.body.appendChild(renderer.domElement);
 var controls = new THREE.OrbitControls( camera, renderer.domElement );
 //controls.addEventListener( 'change', render ); // add this only if there is no animation loop (requestAnimationFrame)
 controls.enableDamping = true;
-controls.dampingFactor = 0.25;
+controls.dampingFactor = 0.9;
 controls.enableZoom = false;
 
 
