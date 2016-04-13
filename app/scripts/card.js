@@ -3,6 +3,9 @@ class Card{
 		// Init
 		this.ratio = 16/9;
 		this.width = 10;
+		if (window.navigator.standalone){
+			this.width = 9;
+		}
 		this.height = this.width * this.ratio;
 		this.space = 5;
 		this.card = new THREE.Object3D();

@@ -5,10 +5,10 @@ var renderer = new THREE.WebGLRenderer({
 	clearColor: 0xdddddd,
 	antialias: true
  });
-// renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setSize(window.innerWidth, window.innerHeight+1);
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.shadowMap.enabled = true;
-//renderer.shadowMapSoft = true;
+renderer.shadowMapSoft = true;
 
 document.body.appendChild(renderer.domElement);
 
