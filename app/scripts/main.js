@@ -18,8 +18,16 @@ var controls = new THREE.OrbitControls( camera, renderer.domElement );
 controls.enableDamping = true;
 controls.dampingFactor = 0.9;
 controls.enableZoom = false;
-
-
+controls.minPolarAngle = Math.PI*3.5/8;
+controls.maxPolarAngle = Math.PI*4.5/8;
+controls.minAzimuthAngle = -Math.PI*0.5/8;
+controls.maxAzimuthAngle = Math.PI*0.5/8;
+window.addEventListener('mouseup', function() {
+	var tweenPositionToReset = new TWEEN.Tween( controls.object.position )
+    .to( { x: controls.position0.x, y: controls.position0.y, z: controls.position0.z }, 500 )
+    .easing( TWEEN.Easing.Quadratic.In )
+    .start();
+}, false);
 // Lights
 init_lights(scene);
 
@@ -33,7 +41,7 @@ function render(time) {
 
 	setTimeout(function() {
 		requestAnimationFrame(render);
-	}, 1000 / 10);
+	}, 1000 / 60);
 
 	TWEEN.update(time);
 	controls.update();

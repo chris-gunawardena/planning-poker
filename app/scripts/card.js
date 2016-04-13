@@ -58,7 +58,7 @@ class Card{
 
 		var tween = new TWEEN.Tween(this.card.position)
 		.easing(TWEEN.Easing.Elastic.InOut)
-		.to(this.selected ? { x: 0, y: 0, z: 20 } : this.initialPosition, 1000)
+		.to(this.selected ? { x: 0, y: 0, z: 40 } : this.initialPosition, 1000)
 		.onUpdate(function() {
 			self.card.position.x = this.x;
 			self.card.position.y = this.y;

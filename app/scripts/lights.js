@@ -7,14 +7,14 @@ function init_lights(scene) {
 	// light.castShadow = true;
 	// scene.add(light);
 
-	var spotLight1 = new THREE.SpotLight( 0xffffff, 1, 150, Math.PI/2, 0.1, 0);
-	spotLight1.position.set( 2, 2, 30 );
+	var spotLight1 = new THREE.SpotLight( 0xffffff, 1, 500, Math.PI/2, 0.1, 0);
+	spotLight1.position.set( 0, 0, 50 );
 	spotLight1.castShadow = true;
 	spotLight1.shadowCameraNear = 1;
 	spotLight1.shadowCameraFar = 100;
 	spotLight1.shadowCameraFov = 100;
-	spotLight1.shadowMapWidth = 1024 * 10;
-	spotLight1.shadowMapHeight = 1024 * 10;
+	spotLight1.shadowMapWidth = 1024 * 3;
+	spotLight1.shadowMapHeight = 1024 * 3;
 	scene.add(spotLight1);
 
 	// var spotLight2 = new THREE.SpotLight(0xffffff, 0.7, 500, Math.PI/2, 1);
@@ -28,7 +28,7 @@ function init_lights(scene) {
 	// // spotLight2.shadowCameraVisible = true;
 	// scene.add(spotLight2);
 
-	var light = new THREE.AmbientLight( 0xbbbbbb ); // soft white light
+	var light = new THREE.AmbientLight(0xaaaaaa); // soft white light
 	scene.add( light );
 
 }
