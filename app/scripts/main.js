@@ -12,30 +12,29 @@ renderer.shadowMap.enabled = true;
 
 document.body.appendChild(renderer.domElement);
 
-//var controls = new THREE.DeviceOrientationControls( camera, renderer.domElement );
+// Touch controls
 var controls = new THREE.OrbitControls( camera, renderer.domElement );
-//controls.addEventListener( 'change', render ); // add this only if there is no animation loop (requestAnimationFrame)
 controls.enableDamping = true;
 controls.dampingFactor = 0.9;
 controls.enableZoom = false;
-controls.minPolarAngle = Math.PI*3.5/8;
-controls.maxPolarAngle = Math.PI*4.5/8;
-controls.minAzimuthAngle = -Math.PI*0.5/8;
-controls.maxAzimuthAngle = Math.PI*0.5/8;
-window.addEventListener('mouseup', function() {
+controls.minPolarAngle = Math.PI*2/8;
+controls.maxPolarAngle = Math.PI*6/8;
+controls.minAzimuthAngle = -Math.PI*2/8;
+controls.maxAzimuthAngle = Math.PI*2/8;
+var re_center = function() {
 	var tweenPositionToReset = new TWEEN.Tween( controls.object.position )
-    .to( { x: controls.position0.x, y: controls.position0.y, z: controls.position0.z }, 500 )
+    .to( { x: controls.position0.x, y: controls.position0.y, z: controls.position0.z }, 300 )
     .easing( TWEEN.Easing.Quadratic.In )
     .start();
-}, false);
+};
+window.addEventListener('mouseup', re_center, false);
+window.addEventListener('touchend', re_center, false);
+
 // Lights
 init_lights(scene);
 
 // Create cards
 var cards = new Cards(scene, camera, renderer);
-
-
-//var colors = [ '#69D2E7', '#A7DBD8', '#E0E4CC', '#F38630', '#FA6900', '#FF4E50', '#F9D423' ];
 
 function render(time) {
 
