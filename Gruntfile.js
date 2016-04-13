@@ -411,7 +411,9 @@ module.exports = function (grunt) {
     'copy:dist',
     'filerev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'shell:cname',
+    'shell:v1'
   ]);
 
   grunt.registerTask('default', [
