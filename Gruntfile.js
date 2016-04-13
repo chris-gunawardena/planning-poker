@@ -322,6 +322,27 @@ module.exports = function (grunt) {
       }
     },
 
+    shell: {
+        cname: {
+            command: 'echo "planning-poker.net" > CNAME',
+            options: {
+                stderr: true,
+                execOptions: {
+                    cwd: 'dist'
+                }
+            },
+        },
+        v1: {
+            command: 'git clone -b v1-jquery-iscroll git@github.com:chris-gunawardena/planning-poker.git v1 && mv v1/dist ../dist/v1',
+            options: {
+                stderr: true,
+                execOptions: {
+                    cwd: '.tmp'
+                }
+            },
+        }
+    },
+
     // Run some tasks in parallel to speed up build process
     concurrent: {
       server: [
